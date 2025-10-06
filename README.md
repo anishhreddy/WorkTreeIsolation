@@ -1,37 +1,40 @@
 Git Challenge: Remote Work Tree Isolation
-This challenge tests a deep understanding of the Git environment and its ability to manage repositories where the internal database and the visible project files are physically separated.
+🎯 Objective
+Your goal is to successfully run a core Git command (git status) against a project where the database and the files are stored in two entirely separate locations. You must solve the isolation problem using only Git Environment Variables and without changing your directory.
 
-The Challenge
-You are required to run a Git command (specifically git status) successfully from a third, irrelevant location.
+The Environment
+This challenge simulates a system where the internal components of a Git repository are physically split:
 
-Challenge Parameters
 Component
 
-Path
+Location Hint (Abstract Path)
 
-Purpose
+Technical Role (Variable Hint)
 
-GIT_DIR
+Isolated Metadata
 
 /data/repo.git
 
-The hidden repository database.
+The hidden Repository Core (Git's database).
 
-GIT_WORK_TREE
+Active Project Files
 
 /www/html/
 
-The visible project files.
+The Work Tree (the files you see and edit).
 
-Starting Location
+Your Location
 
 /home/scripts
 
-The irrelevant directory where you run the command.
+You must run the solution command from here.
 
 The Task
-In a single command, you must explicitly set the two necessary environment variables and run git status.
+Find the single shell command that links the isolated metadata to the project files and successfully runs git status.
 
-The solution must be a single line that proves Git can connect the isolated metadata and the work tree files.
+Solution Format:
 
-The final flag format is the solution command itself.
+Your answer is the required command itself, following the strict format:
+[VARIABLE_1]=[PATH_1] [VARIABLE_2]=[PATH_2] git status
+
+Hint: You must identify which two environment variables are responsible for setting the Repository Core and the Work Tree paths.
